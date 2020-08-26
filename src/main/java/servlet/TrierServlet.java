@@ -32,16 +32,17 @@ public class TrierServlet extends HttpServlet {
         String filtre = request.getParameter("filtre");
         String ordre = request.getParameter("order");
 
-        System.out.println(filtre);
+        switch (ordre) {
+            case "ASC":
+                listeBouteille = gestionBouteille.findAsc(filtre);
+                break;
 
-        switch (ordre){
-            case "ASC" : listeBouteille = gestionBouteille.findAsc(filtre);
-            break;
+            case "DESC":
+                listeBouteille = gestionBouteille.findDesc(filtre);
+                break;
 
-            case "DESC" : listeBouteille = gestionBouteille.findDesc(filtre);
-            break;
-
-            default: listeBouteille = gestionBouteille.getBouteilles();
+            default:
+                listeBouteille = gestionBouteille.getBouteilles();
         }
 
         request.setAttribute("listeBouteille", listeBouteille);

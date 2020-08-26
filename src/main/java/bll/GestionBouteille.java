@@ -34,7 +34,7 @@ public class GestionBouteille {
     }
 
     public List<Bouteille> findByNomContaining(String nom){
-        return bouteilleDao.findByNomContaining(nom);
+        return bouteilleDao.findByNomContainingOrMillesimeContainingOrRegionNomContainingOrCouleurNomContaining(nom,nom,nom,nom);
     }
 
     public List<Bouteille> findAsc(String nom) {

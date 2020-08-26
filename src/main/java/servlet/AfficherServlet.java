@@ -26,8 +26,16 @@ public class AfficherServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Bouteille bouteille = gestionBouteille.getBouteilleById((Integer) request.getSession().getAttribute("index"));
+        Bouteille bouteille = null;
+        System.out.println("ContextPath"  + request.getServletPath());
 
+
+
+//        if (request.getContextPath().equals("/editer")){
+//           bouteille = gestionBouteille.getBouteilleById((Integer) request.getSession().getAttribute("index"));
+//        } else {
+            bouteille = gestionBouteille.getBouteilleById(Integer.parseInt(request.getParameter("index")));
+//        }
         request.setAttribute("vin", bouteille);
 
         RequestDispatcher rd = request.getRequestDispatcher("afficherBouteille.jsp");

@@ -53,7 +53,6 @@ public class AccueilServlet extends HttpServlet {
 
         List<Couleur> listeCouleur = gestionCouleur.getCouleurs();
         List<Region> listeRegion = gestionRegion.getRegions();
-
         request.getSession().setAttribute("listeCouleur", listeCouleur);
         request.getSession().setAttribute("listeRegion", listeRegion);
 

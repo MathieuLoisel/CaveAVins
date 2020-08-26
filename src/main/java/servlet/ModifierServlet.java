@@ -36,7 +36,6 @@ public class ModifierServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("index"));
         int id = Integer.parseInt(request.getParameter("index"));
         Bouteille bouteille = gestionBouteille.getBouteilleById(id);
 
@@ -49,9 +48,12 @@ public class ModifierServlet extends HttpServlet {
 
         gestionBouteille.updateBouteille(bouteille);
 
-        request.getSession().setAttribute("index", id);
+//        request.getSession().setAttribute("index", id);
+        request.setAttribute("vin", bouteille);
 
-        response.sendRedirect("afficher");
+        RequestDispatcher rd = request.getRequestDispatcher("afficherBouteille.jsp");
+        rd.forward(request, response);
+//        response.sendRedirect("afficher");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
