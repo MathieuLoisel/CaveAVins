@@ -31,10 +31,9 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="index.jsp" class="navbar-brand active">
-                <span class="glyphicon glyphicon-film"></span>
-                <span class="glyphicon glyphicon-film"></span>
-            </a>
+            <a href="index.jsp" class="navbar-brand active"><img class="bottle" src="img/Bottle32x32.png"/><img
+                    class="bottle" src="img/Bottle32x32.png"/> </a>
+            <span id="dh"></span>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -90,10 +89,10 @@
                 <td>${b.couleur.nom}</td>
                 <td>${b.region.nom}</td>
                 <td class="centre">
-                    <span class="glyphicon glyphicon-edit vert modif" id="m${b.id}"></span>
+                    <span class="glyphicon glyphicon-edit vert modif" id="${b.id}"></span>
                 </td>
                 <td class="centre">
-                    <span class="glyphicon glyphicon-remove rouge supp" id="s${b.id}"></span>
+                    <span class="glyphicon glyphicon-remove rouge supp" id="${b.id}"></span>
                 </td>
             </tr>
         </c:forEach>

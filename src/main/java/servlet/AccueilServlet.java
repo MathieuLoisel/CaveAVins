@@ -35,7 +35,7 @@ public class AccueilServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
 
-        gestionCouleur.addCouleur(new Couleur("Rouge"));
+/*        gestionCouleur.addCouleur(new Couleur("Rouge"));
         gestionCouleur.addCouleur(new Couleur("Blanc"));
         gestionCouleur.addCouleur(new Couleur("Rosé"));
         gestionCouleur.addCouleur(new Couleur("Jaune"));
@@ -46,18 +46,16 @@ public class AccueilServlet extends HttpServlet {
         gestionRegion.addRegion(new Region("Jura"));
         gestionRegion.addRegion(new Region("Alsace"));
         gestionRegion.addRegion(new Region("Bourgogne"));
-        gestionRegion.addRegion(new Region("Corse"));
+        gestionRegion.addRegion(new Region("Corse"));*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Couleur> listeCouleur = gestionCouleur.getCouleurs();
         List<Region> listeRegion = gestionRegion.getRegions();
-        List<Bouteille> listeBouteille = gestionBouteille.getBouteilles();
 
         request.getSession().setAttribute("listeCouleur", listeCouleur);
         request.getSession().setAttribute("listeRegion", listeRegion);
-        request.getSession().setAttribute("listeBouteille", listeBouteille);
 
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);

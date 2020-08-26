@@ -49,12 +49,11 @@ public class AjouterServlet extends HttpServlet {
         Bouteille bouteille = new Bouteille(nom, millesime, isPetillant, quantite, couleur, region);
         gestionBouteille.addBouteille(bouteille);
 
-        ((List<Bouteille>) request.getSession().getAttribute("listeBouteille")).add(bouteille);
-
         response.sendRedirect("lister");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         RequestDispatcher rd = request.getRequestDispatcher("ajouterBouteille.jsp");
         rd.forward(request, response);
     }

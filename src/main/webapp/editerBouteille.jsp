@@ -18,10 +18,9 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="index.jsp" class="navbar-brand active">
-                <span class="glyphicon glyphicon-film"></span>
-                <span class="glyphicon glyphicon-film"></span>
-            </a>
+            <a href="index.jsp" class="navbar-brand active"><img class="bottle" src="img/Bottle32x32.png"/><img
+                    class="bottle" src="img/Bottle32x32.png"/> </a>
+            <span id="dh"></span>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -43,12 +42,12 @@
     <h1 class="bleu">Edition de la fiche du vin</h1>
     <br><br>
     <div>
-        <form action="modifier" method="POST" class="form-horizontal">
+        <form action="editer" method="POST" class="form-horizontal">
 
             <div class="form-group">
-                <label for="id" class="col-xs-2 control-label">Id :</label>
+                <label for="index" class="col-xs-2 control-label">Id :</label>
                 <div class="col-xs-10">
-                    <input disabled id="id" name="id"
+                    <input readonly="readonly" id="index" name="index"
                            class="form-control" value="${vin.id}"/>
                 </div>
             </div>
@@ -117,7 +116,7 @@
                 <label for="region" class="col-xs-2 control-label">Région :</label>
                 <div class="col-xs-10">
                     <select name="region" id="region" class="form-control">
-                        <c:forEach items="${listeRégion}" var="r">
+                        <c:forEach items="${listeRegion}" var="r">
                             <c:choose>
                                 <c:when test="${r.id == vin.region.id}">
                                     <option selected value="${r.id}">${r.nom}</option>
