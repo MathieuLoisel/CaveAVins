@@ -3,6 +3,7 @@ package bll;
 import bo.Bouteille;
 import dal.BouteilleDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,5 +31,17 @@ public class GestionBouteille {
 
     public void removeBouteille(Bouteille bouteille){
         bouteilleDao.delete(bouteille);
+    }
+
+    public List<Bouteille> findByNomContaining(String nom){
+        return bouteilleDao.findByNomContaining(nom);
+    }
+
+    public List<Bouteille> findAsc(String nom) {
+        return bouteilleDao.findAll(Sort.by(Sort.Direction.ASC, nom));
+    }
+
+    public List<Bouteille> findDesc(String nom){
+        return bouteilleDao.findAll(Sort.by(Sort.Direction.DESC, nom));
     }
 }

@@ -34,7 +34,7 @@
             <a href="index.jsp" class="navbar-brand active"><img class="bottle" src="img/Bottle32x32.png"/><img
                     class="bottle" src="img/Bottle32x32.png"/> </a>
             <span id="dh"></span>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="trier?order=NomASCnavbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.jsp">Accueil</a></li>
-                <li class="active"><a href="#">Liste des bouteilles</a></li>
+                <li class="active"><a href="trier?order=NomASC">Liste des bouteilles</a></li>
                 <li><a href="ajouter">Ajouter une bouteille</a></li>
                 <li><a href="geo.jsp">Qui sommes-nous</a></li>
             </ul>
@@ -69,12 +69,36 @@
     </form>
     <table class="table table-hover table-striped">
         <tr>
-            <th>Nom</th>
-            <th>Millesime</th>
-            <th>Pétillant</th>
-            <th>Quantité</th>
-            <th>Couleur</th>
-            <th>Région</th>
+            <th>
+                <a href="trier?order=DESC&filtre=Nom"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Nom
+                <a href="trier?order=ASC&filtre=Nom"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
+            <th>
+                <a href="trier?order=DESC&filtre=Millesime"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Millesime
+                <a href="trier?order=ASC&filtre=Millesime"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
+            <th>
+                <a href="trier?order=DESC&filtre=isPetillant"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Pétillant
+                <a href="trier?order=ASC&filtre=isPetillant"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
+            <th>
+                <a href="trier?order=DESC&filtre=Quantite"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Quantité
+                <a href="trier?order=ASC&filtre=Quantite"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
+            <th>
+                <a href="trier?order=DESC&filtre=CouleurNom"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Couleur
+                <a href="trier?order=ASC&filtre=CouleurNom"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
+            <th>
+                <a href="trier?order=DESC&filtre=RegionNom"><span class="glyphicon glyphicon-menu-down"></span></a>
+                Région
+                <a href="trier?order=ASC&filtre=RegionNom"><span class="glyphicon glyphicon-menu-up"></span></a>
+            </th>
             <th></th>
             <th></th>
         </tr>

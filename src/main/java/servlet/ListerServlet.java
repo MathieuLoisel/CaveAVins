@@ -26,12 +26,15 @@ public class ListerServlet extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Bouteille> listeBouteille = gestionBouteille.getBouteilles();
+        List<Bouteille> listeBouteille = null;
+
+        if (request.getParameter("filtre") != null && !request.getParameter("filtre").trim().equals("")){
+            String filtre = request.getParameter("filtre");
+            listeBouteille = gestionBouteille.findByNomContaining(filtre);
+        } else {
+            listeBouteille = gestionBouteille.getBouteilles();
+        }
 
         request.setAttribute("listeBouteille", listeBouteille);
 
